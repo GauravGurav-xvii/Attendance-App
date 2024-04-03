@@ -1,0 +1,30 @@
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #2393af;
+  }
+  
+  li {
+    float: right;
+  }
+  
+  .nav-item {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .nav-item:hover {
+    background-color: #111;
+  }
+
+  .nav-logo{
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50px;    
+  }

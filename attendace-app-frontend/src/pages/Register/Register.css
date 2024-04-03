@@ -1,0 +1,45 @@
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(37, 214, 191);
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 20px;
+  color: teal;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  background-color: white;
+  width: 200px;
+  border-radius: 5px;
+  gap: 20px;
+}
+
+input {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.buttons{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  background-color: teal;
+  color: white;
+  cursor: pointer;
+}
