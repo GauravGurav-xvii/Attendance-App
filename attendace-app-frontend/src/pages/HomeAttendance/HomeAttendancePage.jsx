@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import "./HomeAttendancePage.css";
+import date from 'date-and-time';
+
 
 function HomeAttendancePage({ onSignOut, onViewReport }) {
   const [signedIn, setSignedIn] = useState(false);
   const [checkInTime, setCheckInTime] = useState(null);
 
+const now = new Date();
+const pattern = date.compile('YYYY/MM/DD HH:mm:ss');
+
+  
+
   const handleSignIn = () => {
-    setCheckInTime(now);
+    setCheckInTime();
     setSignedIn(true);
   };
 
@@ -18,12 +25,15 @@ function HomeAttendancePage({ onSignOut, onViewReport }) {
   return (
     <div className="container">
       <div className="home-attendance">
-        {signedIn ? (<div>
+        {signedIn ? (<>
+            {date.format(now, pattern)}
           <button onClick={handleSignOut}>Sign Out</button>
-          <p>Check-in time: {checkInTime.toLocaleTimeString()}</p>
-        </div>
+        </>
         ) : (
-          <button onClick={handleSignIn}>Sign In</button>
+            <>
+            {date.format(now, pattern)}
+            <button onClick={handleSignIn}>Sign In</button>
+            </>
         )}
         <button onClick={onViewReport}>View Report</button>
       </div>
