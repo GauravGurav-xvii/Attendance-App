@@ -1,0 +1,41 @@
+/* UserAttendanceReport.css */
+
+.user-attendance-report {
+    font-family: Arial, sans-serif;
+  }
+  
+  .user-attendance-report h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .user-attendance-report table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  
+  .user-attendance-report th,
+  .user-attendance-report td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+  }
+  
+  .user-attendance-report th {
+    background-color: #f2f2f2;
+  }
+  
+  .user-attendance-report tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  button{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  

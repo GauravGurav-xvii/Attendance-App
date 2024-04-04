@@ -1,44 +1,39 @@
-import React, { useState } from "react";
-import "./HomeAttendancePage.css";
-import date from 'date-and-time';
+// HomeAttendancePage.jsx
+import React, { useState, useEffect } from 'react';
+import './HomeAttendancePage.css'; // Import CSS file for styling
+import {Link } from "react-router-dom";
 
+const HomeAttendancePage = ({ handleSignIn, handleSignOut, hasSignedIn, viewReport }) => {
+  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-function HomeAttendancePage({ onSignOut, onViewReport }) {
-  const [signedIn, setSignedIn] = useState(false);
-  const [checkInTime, setCheckInTime] = useState(null);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentDateTime(new Date());
+    }, 1000);
 
-const now = new Date();
-const pattern = date.compile('YYYY/MM/DD HH:mm:ss');
+    return () => clearInterval(intervalId);
+  }, []); 
 
   
-
-  const handleSignIn = () => {
-    setCheckInTime();
-    setSignedIn(true);
-  };
-
-  const handleSignOut = () => {
-    setSignedIn(false);
-    onSignOut();
-  };
+    const handleSignInOut = () => {
+      setIsLoggedIn(prevState => !prevState);
+    };
 
   return (
-    <div className="container">
-      <div className="home-attendance">
-        {signedIn ? (<>
-            {date.format(now, pattern)}
-          <button onClick={handleSignOut}>Sign Out</button>
-        </>
-        ) : (
-            <>
-            {date.format(now, pattern)}
-            <button onClick={handleSignIn}>Sign In</button>
-            </>
-        )}
-        <button onClick={onViewReport}>View Report</button>
+    <div className="home-attendance-container">
+      <h2>Home Attendance Page</h2>
+      <div className="current-date-time">
+        <div className="date">{currentDateTime.toLocaleDateString()}</div>
+        <div className="time">{currentDateTime.toLocaleTimeString()}</div>
       </div>
+      <button className="attendance-button" onClick={handleSignInOut}>
+        {isLoggedIn ? 'Sign Out' : 'Sign In'}
+      </button>
+      <Link to={"/viewreport"}><button className="report-button" onClick={viewReport}>View Report</button></Link>
     </div>
   );
-}
-
+};
 export default HomeAttendancePage;
+
+

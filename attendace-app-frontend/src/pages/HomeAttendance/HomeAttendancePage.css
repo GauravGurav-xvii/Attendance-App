@@ -1,14 +1,51 @@
-.container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.home-attendance{
-    margin-top: 100px;
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+/* HomeAttendancePage.css */
+.home-attendance-container {
+    width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .home-attendance-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .current-time {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .attendance-button,
+  .report-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .attendance-button {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .attendance-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .report-button {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .report-button:hover {
+    background-color: #218838;
+  }
+  

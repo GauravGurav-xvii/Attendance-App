@@ -1,15 +1,20 @@
 import "./Register.css";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const Register = ({ handleRegister }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Validate and register new user
-    handleRegister(username, password);
+    if (username === '' || password===''|| email === ''|| phone ==='') return alert('All Fields are mandetory!');
+    navigate("/");
+    alert('Login to your account');
+    // handleRegister(username, password);
   };
 
   return (
@@ -28,10 +33,22 @@ const Register = ({ handleRegister }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input type="email" placeholder="Email ID" />
-        <input type="text" placeholder="Phone No." />
+        <input
+          type="email"
+          placeholder="Email ID"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Phone No."
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+        />
         <div className="buttons">
-          <Link to={"/"}><button type="submit">Login</button></Link>
+          <Link to={"/"}>
+            <button type="submit">Login</button>
+          </Link>
           <button type="submit">Register</button>
         </div>
       </form>
