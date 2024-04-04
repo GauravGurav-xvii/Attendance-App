@@ -7,10 +7,13 @@ const port = process.env.PORT || 5000;
 connectDb();
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("hello from simple server :)");
-});
+// app.get("/", (req, res) => {
+//   res.send("hello from simple server :)");
+// });
+
 app.use("/api/regusers", require("./routes/registerRoute"));
+app.use("/api/logusers", require("./routes/loginRoute"));
+app.use("/api/attendance", require("./routes/attendanceRoute"));
 
 app.use(errorHandler);
 

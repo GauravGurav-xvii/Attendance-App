@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 const loginUser = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
-  
+    
     if (!email || !password) {
       res.status(400);
       throw new Error("Please provide an Email");
@@ -31,11 +31,7 @@ const loginUser = asyncHandler(async (req, res) => {
     }
   }); 
 
-  const currentUser = asyncHandler((req, res) => {
-    res.json(req.user);
-  });
 
-
-  module.exports = { loginUser, currentUser };
+  module.exports = { loginUser };
 
   
