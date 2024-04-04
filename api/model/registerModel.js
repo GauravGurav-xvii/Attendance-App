@@ -7,13 +7,13 @@ const registerSchema = mongoose.Schema(
       required: true,
       ref: "User",
     },
-    name: {
+    username: {
       type: String,
-      required: [true, "please add the contact name"],
+      required: [true, "please add the name"],
     },
     email: {
       type: String,
-      required: [true, "please add the contact email address"],
+      required: [true, "please add the email address"],
     },
     phone: {
       type: Number,
@@ -25,4 +25,4 @@ const registerSchema = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Regusers", registerSchema);
+module.exports = mongoose.model("Reguser", registerSchema);
